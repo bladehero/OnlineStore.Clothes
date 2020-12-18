@@ -1,0 +1,33 @@
+﻿<div class="breadcrumbs">
+    <div class="container">
+        <ol class="breadcrumb breadcrumb1 animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
+            <li><a href="@Url.Action("Index")"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Главная</a></li>
+            <li class="active">Аккаунт</li>
+        </ol>
+    </div>
+</div>
+<div class="account">
+    <div class="container">
+        <h2>Аккаунт</h2>
+        <div class="account_grid">
+            <div class="col-md-6 login-right">
+                <form action="@Url.Action("Login")" method="post">
+                    <span>Эл. почта</span>
+                    <input type="text" name="email">
+                    <span>Пароль</span>
+                    <input type="password" name="password">
+                    <div class="word-in">
+                        @*<a class="forgot" href="#">Забыли пароль?</a>*@
+                        <input type="submit" value="Логин">
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6 login-left">
+                <h4>Новый клиент?</h4>
+                <p>Создав учетную запись в нашем магазине, вы сможете быстрее пройти через процесс оформления заказа, сохранить несколько адресов доставки, просматривать и отслеживать свои заказы в своей учетной записи и многое другое.</p>
+                <a class="acount-btn" href="@Url.Action("Register")">Создать аккаунт</a>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>

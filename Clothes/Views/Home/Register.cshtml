@@ -1,0 +1,30 @@
+﻿<div class="breadcrumbs">
+    <div class="container">
+        <ol class="breadcrumb breadcrumb1 animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
+            <li><a href="@Url.Action("Index")"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Главная</a></li>
+            <li class="active">Регистрация</li>
+        </ol>
+    </div>
+</div>
+<div class="container">
+    <div class="register">
+        <h2>Регистрация</h2>
+        <form action="@Url.Action("Register")" method="post">
+            <div class="col-md-12  register-top-grid  register-bottom-grid">
+                <div class="mation">
+                    <span>Имя*</span>
+                    <input type="text" name="firstname">
+                    <span>Фамилия</span>
+                    <input type="text" name="lastname">
+                    <span>Эл. почта*</span>
+                    <input type="text" name="email">
+                    <span>Пароль</span>
+                    <input type="password" name="password">
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="clearfix"> </div>
+            <input class="register-but" type="submit" value="Зарегистрироваться">
+        </form>
+    </div>
+</div>

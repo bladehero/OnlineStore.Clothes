@@ -1,0 +1,126 @@
+﻿@model Clothes.Models.SingleVM
+
+<div class="breadcrumbs">
+    <div class="container">
+        <ol class="breadcrumb breadcrumb1 animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
+            <li><a href="@Url.Action("Index")"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Главная</a></li>
+            <li class="active">@Model.Product.Name</li>
+        </ol>
+    </div>
+</div>
+<div class="single">
+    <div class="container">
+        <div class="col-md-9">
+            <div class="col-md-5 grid">
+                <div class="flexslider">
+                    <ul class="slides">
+                        <li data-thumb="~/Content/images/@Model.Product.Image">
+                            <div class="thumb-image"> <img src="~/Content/images/@Model.Product.Image" data-imagezoom="true" class="img-responsive"> </div>
+                        </li>
+                        @if (Model.ProductPictures != null)
+                        {
+                            foreach (var picture in Model.ProductPictures)
+                            {
+                                <li data-thumb="~/Content/images/@picture.Image">
+                                    <div class="thumb-image"> <img src="~/Content/images/@picture.Image" data-imagezoom="true" class="img-responsive"> </div>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-7 single-top-in">
+                <div class="single-para simpleCart_shelfItem">
+                    <h2>@Model.Product.Name</h2>
+                    <p>@Model.Product.Description</p>
+                    <div class="star-on">
+                        <ul>
+                            @for (int i = 0; i < Model.Product.Mark; i++)
+                            {
+                                <li><a href="#"><i class="glyphicon glyphicon-star"> </i></a></li>
+                            }
+                        </ul>
+                        <div class="review">
+                            <a href="#"> @Model.Product.ReviewCount reviews </a>
+                            @*<a href="#">  Write a review</a>*@
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <label class="add-to item_price">₴@Model.Product.Price</label>
+                    <div class="available">
+                        <h6>Выберите размер:</h6>
+                        <ul>
+
+                            <li>
+                                Size:<select>
+                                    <option>XL</option>
+                                    <option>L</option>
+                                    <option>M</option>
+                                    <option>S</option>
+                                    <option>XS</option>
+                                </select>
+                            </li>
+                        </ul>
+                        <a href="@Url.Action("AddToCart", new { id = Model.Product.Id })" class="cart item_add">В корзину</a>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+            <div class="content-top1">
+                @foreach (var product in Model.OtherProducts)
+                {
+                    <div class="col-md-4 col-md4">
+                        <div class="col-md1 simpleCart_shelfItem">
+                            <a href="@Url.Action("Single", new { id = product.Id })">
+                                <img class="img-responsive" src="~/Content/images/@product.Image" alt="@product.Name" />
+                            </a>
+                            <h3><a href="@Url.Action("Single", new { id = product.Id })">@product.Name</a></h3>
+                            <div class="price">
+                                <h5 class="item_price">₴@product.Price</h5>
+                                <a href="@Url.Action("AddToCart", new { id = product.Id })" class="item_add">В корзину</a>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <!----->
+        <div class="col-md-3 product-bottom">
+            @{
+                Html.RenderAction("Categories");
+                Html.RenderAction("BestSellers");
+                Html.RenderAction("Tags", new { id = Model.Product.Id, isTag = false });
+            }
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('.popup-with-zoom-anim').magnificPopup({
+                type: 'inline',
+                fixedContentPos: false,
+                fixedBgPos: true,
+                overflowY: 'auto',
+                closeBtnInside: true,
+                preloader: false,
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-zoom-in'
+            });
+        });
+    </script>
+
+    <script>
+        $(window).load(function () {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                controlNav: "thumbnails"
+            });
+        });
+    </script>
+}

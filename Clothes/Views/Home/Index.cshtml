@@ -1,0 +1,208 @@
+﻿@model Clothes.Models.IndexVM
+<!--banner-->
+<div class="banner">
+    <div class="matter-banner">
+        <div class="slider">
+            <div class="callbacks_container">
+                <ul class="rslides" id="slider">
+                    <li>
+                        <img src="~/Content/images/1.jpg" alt="">
+                        <div class="tes animated wow fadeInUp animated" data-wow-delay="1s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+                            <h2>Женская одежда</h2>
+                            <h3>Пальто и юбки</h3>
+                            <h4>Скидки до 60%</h4>
+                            <p>Такого Вы нигде не найдете!</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="~/Content/images/3.jpg" alt="">
+                        <div class="tes animated wow fadeInUp animated" data-wow-delay="1s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+                            <h2>Мужская одежда</h2>
+                            <h3>Толстовки и брюки</h3>
+                            <h4>Скидки до 40%</h4>
+                            <p>Поторопись!</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="~/Content/images/2.jpg" alt="">
+                        <div class="tes animated wow fadeInUp animated" data-wow-delay="1s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+                            <h2>Аксессуары</h2>
+                            <h3>Часы, очки и многое другое</h3>
+                            <h4>Скидки до 35%</h4>
+                            <p>Лучшее предложение!</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"> </div>
+</div>
+<!--//banner-->
+<!--content-->
+<div class="content">
+    <div class="container">
+        <div class="content-top">
+            <div class="content-top1">
+                @{
+                    var product = Model.Products[0];
+                }
+                <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
+                    <div class="col-md1 simpleCart_shelfItem">
+                        <a href="@Url.Action("Single", new { id = product.Id })">
+                            <img class="img-responsive" src="~/Content/images/@product.Image" alt="@product.Name" />
+                        </a>
+                        <h3><a href="@Url.Action("Single", new { id = product.Id })">@product.Name</a></h3>
+                        <div class="price">
+                            <h5 class="item_price">₴@product.Price</h5>
+                            <a href="@Url.Action("AddToCart", new { id = product.Id })" class="item_add">В корзину</a>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 animated wow fadeInDown animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
+                    <div class="col-md3">
+                        <div class="up-t">
+                            <h3>Скидки до 60%</h3>
+                        </div>
+                    </div>
+                </div>
+                @{
+                    product = Model.Products[1];
+                }
+                <div class="col-md-3 col-md2 animated wow fadeInRight" data-wow-delay=".5s">
+                    <div class="col-md1 simpleCart_shelfItem">
+                        <a href="@Url.Action("Single", new { id = product.Id })">
+                            <img class="img-responsive" src=~/Content/images/@product.Image alt="@product.Name" />
+                        </a>
+                        <h3><a href="@Url.Action("Single", new { id=product.Id })">@product.Name</a></h3>
+                        <div class="price">
+                            <h5 class="item_price">₴@product.Price</h5>
+                            <a href="@Url.Action("AddToCart", new { id = product.Id })" class="item_add">В корзину</a>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="content-top1">
+                @foreach (var item in Model.Products.Skip(2).Take(2))
+                {
+                    <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
+                        <div class="col-md1 simpleCart_shelfItem">
+                            <a href="@Url.Action("Single", new { id=item.Id })">
+                                <img class="img-responsive" src="~/Content/images/@item.Image" alt="@item.Name" />
+                            </a>
+                            <h3><a href="@Url.Action("Single", new { id=item.Id })">@item.Name</a></h3>
+                            <div class="price">
+                                <h5 class="item_price">₴@item.Price</h5>
+                                <a href="@Url.Action("AddToCart", new { id = item.Id })" class="item_add">В корзину</a>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @foreach (var item in Model.Products.Skip(4).Take(2))
+                {
+                    <div class="col-md-3 col-md2 animated wow fadeInRight" data-wow-delay=".5s">
+                        <div class="col-md1 simpleCart_shelfItem">
+                            <a href="@Url.Action("Single", new { id=item.Id })">
+                                <img class="img-responsive" src="~/Content/images/@item.Image" alt="@item.Name" />
+                            </a>
+                            <h3><a href="@Url.Action("Single", new { id=item.Id })">@item.Name</a></h3>
+                            <div class="price">
+                                <h5 class="item_price">₴@item.Price</h5>
+                                <a href="@Url.Action("AddToCart", new { id = item.Id })" class="item_add">В корзину</a>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--//content-->
+
+<div class="con-tp">
+    <div class="container">
+        @{
+            var animations = new string[] { "fadeInLeft", "fadeInDown", "fadeInRight", "fadeInLeft", "fadeInUp", "fadeInRight" };
+            var counter = 0;
+        }
+        @foreach (var tag in Model.Tags)
+        {
+            <div class="col-md-4 con-tp-lft animated wow @animations[counter]" data-wow-delay=".5s">
+                <a href="@Url.Action("Products", new { id=tag.Id })">
+                    <div class="content-grid-effect slow-zoom vertical">
+                        <div class="img-box"><img src="~/Content/images/@tag.Image" alt="@tag.Name" class="img-responsive zoom-img"></div>
+                        <div class="info-box">
+                            <div class="info-content simpleCart_shelfItem">
+                                <h4>@tag.Name</h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            counter++;
+        }
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+<div class="c-btm">
+    <div class="content-top1">
+        <div class="container">
+            @foreach (var item in Model.Products.Skip(6).Take(2))
+            {
+                <div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
+                    <div class="col-md1 simpleCart_shelfItem">
+                        <a href="@Url.Action("Single", new { id=item.Id })">
+                            <img class="img-responsive" src="~/Content/images/@item.Image" alt="@item.Name" />
+                        </a>
+                        <h3><a href="@Url.Action("Single", new { id=item.Id })">@item.Name</a></h3>
+                        <div class="price">
+                            <h5 class="item_price">₴@item.Price</h5>
+                            <a href="@Url.Action("AddToCart", new { id = item.Id })" class="item_add">В корзину</a>
+                            <div class="clearfix"> </div>
+                        </div>
+
+                    </div>
+                </div>
+            }
+            @foreach (var item in Model.Products.Skip(8).Take(2))
+            {
+                <div class="col-md-3 col-md2 animated wow fadeInRight" data-wow-delay=".5s">
+                    <div class="col-md1 simpleCart_shelfItem">
+                        <a href="@Url.Action("Single", new { id=item.Id })">
+                            <img class="img-responsive" src="~/Content/images/@item.Image" alt="@item.Name" />
+                        </a>
+                        <h3><a href="@Url.Action("Single", new { id=item.Id })">@item.Name</a></h3>
+                        <div class="price">
+                            <h5 class="item_price">₴@item.Price</h5>
+                            <a href="@Url.Action("AddToCart", new { id = item.Id })" class="item_add">В корзину</a>
+                            <div class="clearfix"> </div>
+                        </div>
+
+                    </div>
+                </div>
+            }
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#slider").responsiveSlides({
+                auto: false,
+                speed: 500,
+                namespace: "callbacks",
+                pager: true,
+            });
+            $("#slider").responsiveSlides();
+        });
+    </script>
+}

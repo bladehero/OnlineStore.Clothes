@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Clothes.Models.CheckoutProductVM>
+@{
+    double totalPrice = 0;
+    foreach (var item in Model)
+    {
+        totalPrice += item.Quantity * item.Product.Price;
+    }
+}
+<div class="breadcrumbs">
+    <div class="container">
+        <ol class="breadcrumb breadcrumb1 animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
+            <li><a href="@Url.Action("Index")"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Главная</a></li>
+            <li class="active">Корзина</li>
+        </ol>
+    </div>
+</div>
+<!---->
+<div class="container">
+    <div class="check-out">
+        <h2>Корзина</h2>
+        <table id="checkout-table">
+            <tr>
+                <th>Товар</th>
+                <th>К-во</th>
+                <th>Цена за шт.</th>
+                <th>Сумма</th>
+                <th></th>
+            </tr>
+            @foreach (var product in Model)
+            {
+                <tr class="product-item" data-price="@product.Product.Price" data-id="@product.Product.Id">
+                    <td class="ring-in">
+                        <a href="@Url.Action("Single", new { id = product.Product.Id })" class="at-in"><img src="~/Content/images/@product.Product.Image" class="img-responsive" alt="@product.Product.Name"></a>
+                        <div class="sed">
+                            <h5>@product.Product.Name</h5>
+                            <p>@product.Product.Description</p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </td>
+                    <td class="check"><input type="number" value="@product.Quantity" min="1" max="100"></td>
+                    <td>₴@product.Product.Price</td>
+                    <td class="total-price">₴<span class="total-price-value">@(product.Product.Price * product.Quantity)</span></td>
+                    <td><a href="@Url.Action("RemoveFromCart", new { id = product.Product.Id })"><i class="glyphicon glyphicon-remove"></i></a></td>
+                </tr>
+            }
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>₴<span id="order-total-price">@totalPrice</span></td>
+                <td></td>
+            </tr>
+        </table>
+        <div class="container">
+            <div class="col-md-6">
+                <a href="@Url.Action("Buy")" class=" to-buy">Купить</a>
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.check > input').change(function () {
+            debugger
+            var parents = $(this).parents('tr');
+            var totalPrice = parents.data('price') * $(this).val();
+            parents.find('.total-price-value').text(Math.round(totalPrice * 100) / 100);
+            $.ajax({
+                url: '@Url.Action("ChangeQuantity")',
+                method: 'POST',
+                data: { productId: parents.data('id'), quantity: $(this).val() }
+            });
+
+            var orderTotalPrice = 0;
+            $('.product-item').each(function () {
+                orderTotalPrice += $(this).data('price') * $(this).find('.check > input').val();
+            });
+            $('#order-total-price').text(Math.round(orderTotalPrice * 100) / 100);
+        });
+    });
+</script>

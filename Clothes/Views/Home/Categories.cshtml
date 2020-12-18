@@ -1,0 +1,14 @@
+﻿@model Clothes.Models.CategoriesVM
+
+<!--categories-->
+<div class=" rsidebar span_1_of_left">
+    <h3 class="cate">Категории</h3>
+    <ul class="menu-drop">
+        @foreach (var category in Model.Categories)
+        {
+            <li class="item1">
+                <a class="@(category.Id == Model.SelectedCategory ? "active" : "")" href="@Url.Action("Category", new { id = category.Id })">@category.Name</a>
+            </li>
+        }
+    </ul>
+</div>

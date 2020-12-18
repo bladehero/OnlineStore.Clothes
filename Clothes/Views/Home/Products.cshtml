@@ -1,0 +1,68 @@
+﻿@model Clothes.Models.ProductsVM
+@{
+    var products = Model.Products.ToList();
+    var multiplier = 3;
+}
+
+<div class="breadcrumbs">
+    <div class="container">
+        <ol class="breadcrumb breadcrumb1 animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
+            <li><a href="@Url.Action("Index")"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Главная</a></li>
+            @if (string.IsNullOrWhiteSpace(Model.SearchString))
+            {
+                <li class="active">Товары</li>
+            }
+            else
+            {
+                <li><a href="@Url.Action("Products")"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Товары</a></li>
+                <li class="active">@Model.SearchString</li>
+            }
+        </ol>
+    </div>
+</div>
+<!--content-->
+<div class="products">
+    <div class="container">
+        <h2>Товары</h2>
+        <div class="col-md-9">
+            @if (products.Count == 0)
+            {
+                <p class="black-50">В этом разделе пока нет товаров...</p>
+            }
+            else
+            {
+                for (int i = 0; i < (int)Math.Ceiling((decimal)products.Count / multiplier); i++)
+                {
+                    <div class="content-top1">
+                        @foreach (var product in products.Skip(i * multiplier).Take(multiplier))
+                        {
+                            <div class="col-md-4 col-md4">
+                                <div class="col-md1 simpleCart_shelfItem">
+                                    <a href="@Url.Action("Single", new { id = product.Id })">
+                                        <img class="img-responsive" src="~/Content/images/@product.Image" alt="@product.Name" />
+                                    </a>
+                                    <h3><a href="@Url.Action("Single", new { id = product.Id })">@product.Name</a></h3>
+                                    <div class="price">
+                                        <h5 class="item_price">₴@product.Price</h5>
+                                        <a href="@Url.Action("AddToCart", new { id = product.Id })" class="item_add">В корзину</a>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        <div class="clearfix"> </div>
+                    </div>
+                }
+            }
+        </div>
+        <div class="col-md-3 product-bottom">
+            @{
+                Html.RenderAction("Categories", new { id = Model.SelectedCategory?.Id });
+                Html.RenderAction("BestSellers");
+                Html.RenderAction("Tags", new { id = Model.SelectedTag?.Id });
+            }
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<!--//content-->
