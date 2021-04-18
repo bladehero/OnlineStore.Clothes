@@ -31,7 +31,7 @@ create table dbo.Products
 Id int not null primary key identity,
 IsDeleted bit not null default (0),
 [Name] nvarchar(256) not null unique,
-[Description] nvarchar(max) not null default (N'Описание отсутствует...'),
+[Description] nvarchar(max) not null default (N'No description yet...'),
 Price float not null,
 ReviewCount int not null default (0),
 Mark int not null default (5) check (Mark between 0 and 5),
