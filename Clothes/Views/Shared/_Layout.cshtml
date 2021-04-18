@@ -42,13 +42,13 @@
         <div class="header-top">
             <div class="container">
                 <div class="col-sm-4 logo animated wow fadeInLeft" data-wow-delay=".5s">
-                    <h1><a href="@Url.Action("Index")">#Топ<span>Шмот</span></a></h1>
+                    <h1><a href="@Url.Action("Index", "Home")">#Топ<span>Шмот</span></a></h1>
                 </div>
                 <div class="col-sm-4 world animated wow fadeInRight" data-wow-delay=".5s">
                     @if (user != null)
                     {
                         <div class="cart box_1">
-                            <a href="@Url.Action("Checkout")">
+                            <a href="@Url.Action("Checkout", "Home")">
                                 <h3>
                                     <div class="total">
                                         <span>@($"{user.FirstName} {user.LastName}")</span>
@@ -91,9 +91,9 @@
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                             <ul class="nav navbar-nav nav_1">
-                                <li><a href="@Url.Action("Index")">Главная</a></li>
+                                <li><a href="@Url.Action("Index", "Home")">Главная</a></li>
                                 <li class="dropdown mega-dropdown active">
-                                    <a href="@Url.Action("Women")" class="dropdown-toggle" data-toggle="dropdown">Категории<span class="caret"></span></a>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Категории<span class="caret"></span></a>
                                     <div class="dropdown-menu mega-dropdown-menu">
                                         <div class="container-fluid">
                                             <!-- Tab panes -->
@@ -102,7 +102,7 @@
                                                     <ul class="nav-list list-inline">
                                                         @foreach (Category category in ViewBag.Categories)
                                                         {
-                                                            <li><a href="@Url.Action("Category", new { id = category.Id })">@category.Name<img src="~/Content/images/@category.Image" class="img-responsive" alt="@category.Name" /></a></li>
+                                                            <li><a href="@Url.Action("Category", "Home", new { id = category.Id })">@category.Name<img src="~/Content/images/@category.Image" class="img-responsive" alt="@category.Name" /></a></li>
                                                         }
                                                     </ul>
                                                 </div>
@@ -111,15 +111,15 @@
                                         <!-- Nav tabs -->
                                     </div>
                                 </li>
-                                <li><a href="@Url.Action("Products", new { id = (int?)null })">Товары</a></li>
-                                <li><a href="@Url.Action("Contact")">Контакты</a></li>
+                                <li><a href="@Url.Action("Products", "Home", new { id = (int?)null })">Товары</a></li>
+                                <li><a href="@Url.Action("Contact", "Home")">Контакты</a></li>
                                 @if (user == null)
                                 {
-                                    <li class="last"><a href="@Url.Action("Account")">Войти</a></li>
+                                    <li class="last"><a href="@Url.Action("Account", "Home")">Войти</a></li>
                                 }
                                 else
                                 {
-                                    <li class="last"><a href="@Url.Action("Logout")">Выйти</a></li>
+                                    <li class="last"><a href="@Url.Action("Logout", "Home")">Выйти</a></li>
                                 }
                             </ul>
                         </div><!-- /.navbar-collapse -->
@@ -131,7 +131,7 @@
                 <div id="small-dialog" class="mfp-hide">
                     <div class="search-top">
                         <div class="login">
-                            <form action="@Url.Action("Search")" method="get">
+                            <form action="@Url.Action("Search", "Home")" method="get">
                                 <input type="submit" value="">
                                 <input type="text" name="search" value="Напишите ваш запрос..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
                             </form>
@@ -181,8 +181,8 @@
                 </div>
                 <div class="col-md-6 top-footer1 animated wow fadeInRight" data-wow-delay=".5s">
                     <h3>Рассылка</h3>
-                    <form action="@Url.Action("Subscribe")" method="post">
-                        <input type="text" name="email" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+                    <form action="@Url.Action("Subscribe", "Home")" method="post">
+                        <input type="text" name="email" value="" onfocus="this.value='';" onblur="if (this.value === '') {this.value ='';}">
                         <input type="submit" value="Подписаться">
                     </form>
                 </div>
@@ -196,7 +196,7 @@
                     <ul>
                         @foreach (Category category in ViewBag.Categories)
                         {
-                            <li><a href="@Url.Action("Category", new { id = category.Id })">@category.Name</a></li>
+                            <li><a href="@Url.Action("Category", "Home", new { id = category.Id })">@category.Name</a></li>
                         }
                     </ul>
                 </div>
@@ -205,7 +205,7 @@
                     <ul>
                         @foreach (Product product in ViewBag.BestSellers)
                         {
-                            <li><a href="@Url.Action("Single", new { id = product.Id })">@product.Name</a></li>
+                            <li><a href="@Url.Action("Single", "Home", new { id = product.Id })">@product.Name</a></li>
                         }
                     </ul>
                 </div>
@@ -214,7 +214,7 @@
                     <ul>
                         @foreach (Tag tag in ViewBag.Tags)
                         {
-                            <li><a href="@Url.Action("Products", new { id = tag.Id })">@tag.Name</a></li>
+                            <li><a href="@Url.Action("Products", "Home", new { id = tag.Id })">@tag.Name</a></li>
                         }
                     </ul>
                 </div>
