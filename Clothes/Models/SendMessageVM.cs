@@ -4,12 +4,12 @@ namespace Clothes.Models
 {
     public class SendMessageVM
     {
-        [Required(ErrorMessage = "Имя - обязательное поле!")]
+        [Required(ErrorMessage = "Name is a required field!")]
         public string Name { get; set; }
-        [Required(ErrorMessage = "Эл. почта - обязательное поле!")]
+        [Required(ErrorMessage = "Email is a required field!")]
         public string Email { get; set; }
         public string Phone { get; set; }
-        [Required(ErrorMessage = "Текст сообщения не может быть пустым!")]
+        [Required(ErrorMessage = "Text is a required field!")]
         public string Text { get; set; }
     }
 }

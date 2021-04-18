@@ -75,7 +75,7 @@ namespace Clothes.Controllers
                             select product),
                 SelectedTag = id.HasValue ? unitOfWork.Tags.FirstOrDefault(x => x.Id == id) : null
             };
-            model.SearchString = id.HasValue ? $"Тег \"{model.SelectedTag?.Name}\"" : null;
+            model.SearchString = id.HasValue ? $"Tag \"{model.SelectedTag?.Name}\"" : null;
             return View(model);
         }
 
@@ -86,7 +86,7 @@ namespace Clothes.Controllers
                 Products = unitOfWork.Products.Find(x => !id.HasValue || x.CategoryId == id.Value),
                 SelectedCategory = id.HasValue ? unitOfWork.Categories.FirstOrDefault(x => x.Id == id) : null
             };
-            model.SearchString = id.HasValue ? $"Категория \"{model.SelectedCategory?.Name}\"" : null;
+            model.SearchString = id.HasValue ? $"Category \"{model.SelectedCategory?.Name}\"" : null;
             return View("Products", model);
         }
 
@@ -207,7 +207,7 @@ namespace Clothes.Controllers
                                   || tag.Name.ToLower().Contains(search)
                             select product).Distinct()
             };
-            model.SearchString = string.IsNullOrWhiteSpace(search) ? null : $"Поиск \"{search}\" ({model.Products.Count()})";
+            model.SearchString = string.IsNullOrWhiteSpace(search) ? null : $"Search \"{search}\" ({model.Products.Count()})";
             return View("Products", model);
         }
 
@@ -334,7 +334,7 @@ namespace Clothes.Controllers
 
         private IEnumerable<Product> GetBestSellers()
         {
-            return (from tag in unitOfWork.Tags.Find(x => x.Name == "Топ")
+            return (from tag in unitOfWork.Tags.Find(x => x.Name == "Top")
                     join taggedProduct in unitOfWork.TaggedProducts on tag.Id equals taggedProduct.TagId
                     join product in unitOfWork.Products on taggedProduct.ProductId equals product.Id
                     select product).Distinct();

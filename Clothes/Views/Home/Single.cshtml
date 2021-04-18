@@ -3,7 +3,7 @@
 <div class="breadcrumbs">
     <div class="container">
         <ol class="breadcrumb breadcrumb1 animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
-            <li><a href="@Url.Action("Index")"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Главная</a></li>
+            <li><a href="@Url.Action("Index")"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Main Page</a></li>
             <li class="active">@Model.Product.Name</li>
         </ol>
     </div>
@@ -42,13 +42,12 @@
                         </ul>
                         <div class="review">
                             <a href="#"> @Model.Product.ReviewCount reviews </a>
-                            @*<a href="#">  Write a review</a>*@
                         </div>
                         <div class="clearfix"> </div>
                     </div>
-                    <label class="add-to item_price">₴@Model.Product.Price</label>
+                    <label class="add-to item_price">$@Model.Product.Price</label>
                     <div class="available">
-                        <h6>Выберите размер:</h6>
+                        <h6>Select size:</h6>
                         <ul>
 
                             <li>
@@ -61,7 +60,7 @@
                                 </select>
                             </li>
                         </ul>
-                        <a href="@Url.Action("AddToCart", new { id = Model.Product.Id })" class="cart item_add">В корзину</a>
+                        <a href="@Url.Action("AddToCart", new { id = Model.Product.Id })" class="cart item_add">Add to cart</a>
                     </div>
                 </div>
             </div>
@@ -76,8 +75,8 @@
                             </a>
                             <h3><a href="@Url.Action("Single", new { id = product.Id })">@product.Name</a></h3>
                             <div class="price">
-                                <h5 class="item_price">₴@product.Price</h5>
-                                <a href="@Url.Action("AddToCart", new { id = product.Id })" class="item_add">В корзину</a>
+                                <h5 class="item_price">$@product.Price</h5>
+                                <a href="@Url.Action("AddToCart", new { id = product.Id })" class="item_add">Add to cart</a>
                                 <div class="clearfix"> </div>
                             </div>
                         </div>

@@ -2,7 +2,7 @@
 
 <!--seller-->
 <div class="product-bottom">
-    <h3 class="cate">Топ продаж</h3>
+    <h3 class="cate">Top sales</h3>
     @foreach (var bestseller in Model.Products)
     {
         <div class="product-go">
@@ -11,7 +11,7 @@
             </div>
             <div class="fashion-grid1">
                 <h6 class="best2"><a href="@Url.Action("Single", new { bestseller.Id })">@bestseller.Name</a></h6>
-                <span class=" price-in1">₴@bestseller.Price</span>
+                <span class=" price-in1">$@bestseller.Price</span>
             </div>
             <div class="clearfix"> </div>
         </div>

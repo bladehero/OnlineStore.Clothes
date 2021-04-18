@@ -8,28 +8,28 @@
                     <li>
                         <img src="~/Content/images/1.jpg" alt="">
                         <div class="tes animated wow fadeInUp animated" data-wow-delay="1s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-                            <h2>Женская одежда</h2>
-                            <h3>Пальто и юбки</h3>
-                            <h4>Скидки до 60%</h4>
-                            <p>Такого Вы нигде не найдете!</p>
+                            <h2>Women's clothes</h2>
+                            <h3>Coats and skirts</h3>
+                            <h4>Discounts up to 60%</h4>
+                            <p>You would never find better!</p>
                         </div>
                     </li>
                     <li>
                         <img src="~/Content/images/3.jpg" alt="">
                         <div class="tes animated wow fadeInUp animated" data-wow-delay="1s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-                            <h2>Мужская одежда</h2>
-                            <h3>Толстовки и брюки</h3>
-                            <h4>Скидки до 40%</h4>
-                            <p>Поторопись!</p>
+                            <h2>Men's clothes</h2>
+                            <h3>Hoodies & Pants</h3>
+                            <h4>Discounts up to 40%</h4>
+                            <p>Hurry up!</p>
                         </div>
                     </li>
                     <li>
                         <img src="~/Content/images/2.jpg" alt="">
                         <div class="tes animated wow fadeInUp animated" data-wow-delay="1s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-                            <h2>Аксессуары</h2>
-                            <h3>Часы, очки и многое другое</h3>
-                            <h4>Скидки до 35%</h4>
-                            <p>Лучшее предложение!</p>
+                            <h2>Accessories</h2>
+                            <h3>Watches, glasses and more</h3>
+                            <h4>Discounts up to 35%</h4>
+                            <p>Best offer!</p>
                         </div>
                     </li>
                 </ul>
@@ -54,8 +54,8 @@
                         </a>
                         <h3><a href="@Url.Action("Single", new { id = product.Id })">@product.Name</a></h3>
                         <div class="price">
-                            <h5 class="item_price">₴@product.Price</h5>
-                            <a href="@Url.Action("AddToCart", new { id = product.Id })" class="item_add">В корзину</a>
+                            <h5 class="item_price">$@product.Price</h5>
+                            <a href="@Url.Action("AddToCart", new { id = product.Id })" class="item_add">Add to cart</a>
                             <div class="clearfix"> </div>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                 <div class="col-md-6 animated wow fadeInDown animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
                     <div class="col-md3">
                         <div class="up-t">
-                            <h3>Скидки до 60%</h3>
+                            <h3>Discounts up to 60%</h3>
                         </div>
                     </div>
                 </div>
@@ -77,8 +77,8 @@
                         </a>
                         <h3><a href="@Url.Action("Single", new { id=product.Id })">@product.Name</a></h3>
                         <div class="price">
-                            <h5 class="item_price">₴@product.Price</h5>
-                            <a href="@Url.Action("AddToCart", new { id = product.Id })" class="item_add">В корзину</a>
+                            <h5 class="item_price">$@product.Price</h5>
+                            <a href="@Url.Action("AddToCart", new { id = product.Id })" class="item_add">Add to cart</a>
                             <div class="clearfix"> </div>
                         </div>
                     </div>
@@ -95,8 +95,8 @@
                             </a>
                             <h3><a href="@Url.Action("Single", new { id=item.Id })">@item.Name</a></h3>
                             <div class="price">
-                                <h5 class="item_price">₴@item.Price</h5>
-                                <a href="@Url.Action("AddToCart", new { id = item.Id })" class="item_add">В корзину</a>
+                                <h5 class="item_price">$@item.Price</h5>
+                                <a href="@Url.Action("AddToCart", new { id = item.Id })" class="item_add">Add to cart</a>
                                 <div class="clearfix"> </div>
                             </div>
                         </div>
@@ -111,8 +111,8 @@
                             </a>
                             <h3><a href="@Url.Action("Single", new { id=item.Id })">@item.Name</a></h3>
                             <div class="price">
-                                <h5 class="item_price">₴@item.Price</h5>
-                                <a href="@Url.Action("AddToCart", new { id = item.Id })" class="item_add">В корзину</a>
+                                <h5 class="item_price">$@item.Price</h5>
+                                <a href="@Url.Action("AddToCart", new { id = item.Id })" class="item_add">Add to cart</a>
                                 <div class="clearfix"> </div>
                             </div>
                         </div>
@@ -163,8 +163,8 @@
                         </a>
                         <h3><a href="@Url.Action("Single", new { id=item.Id })">@item.Name</a></h3>
                         <div class="price">
-                            <h5 class="item_price">₴@item.Price</h5>
-                            <a href="@Url.Action("AddToCart", new { id = item.Id })" class="item_add">В корзину</a>
+                            <h5 class="item_price">$@item.Price</h5>
+                            <a href="@Url.Action("AddToCart", new { id = item.Id })" class="item_add">Add to cart</a>
                             <div class="clearfix"> </div>
                         </div>
 
@@ -180,8 +180,8 @@
                         </a>
                         <h3><a href="@Url.Action("Single", new { id=item.Id })">@item.Name</a></h3>
                         <div class="price">
-                            <h5 class="item_price">₴@item.Price</h5>
-                            <a href="@Url.Action("AddToCart", new { id = item.Id })" class="item_add">В корзину</a>
+                            <h5 class="item_price">$@item.Price</h5>
+                            <a href="@Url.Action("AddToCart", new { id = item.Id })" class="item_add">Add to cart</a>
                             <div class="clearfix"> </div>
                         </div>
 

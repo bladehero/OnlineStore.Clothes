@@ -4,12 +4,12 @@ namespace Clothes.Models
 {
     public class RegisterVM
     {
-        [Required(ErrorMessage = "Имя - обязательное поле!")]
+        [Required(ErrorMessage = "Name is a required field!")]
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        [Required(ErrorMessage = "Эл. почта - обязательное поле!")]
+        [Required(ErrorMessage = "Email is a required field!")]
         public string Email { get; set; }
-        [Required(ErrorMessage = "Пароль - обязательное поле!")]
+        [Required(ErrorMessage = "Password is a required field!")]
         public string Password { get; set; }
     }
 }

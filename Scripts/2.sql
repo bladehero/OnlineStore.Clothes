@@ -7,10 +7,10 @@ using
   select [Name]
        , [Image]
   from (
-          values (N'Штаны', 't7.jpg')
-               , (N'Брюки', 't8.jpg')
-               , (N'Джинсы', 't3.jpg')
-               , (N'Женские штаны и юбки', 't1.jpg')
+          values (N'Trousers', 't7.jpg')
+               , (N'Pants', 't8.jpg')
+               , (N'Jeans', 't3.jpg')
+               , (N'Women''s pants and skirts', 't1.jpg')
        ) as v([Name], [Image])
 ) as trg
   on src.[Name] = trg.[Name]
@@ -27,16 +27,16 @@ using
        , [Image]
        , CategoryId
   from (
-          values (N'Юбка красная"',199.99,'pi3.png',4)
-               , (N'Джинсы темные',299.99,'pi10.png',3)
-               , (N'Серые штаны',349.99,'pi12.png',1)
-               , (N'Джинсы черные',600,'pi9.png',3)
-               , (N'Брюки черные',600,'pi11.png',2)
-               , (N'Юбка в горошек',600,'pi5.png',4)
-               , (N'Штаны в орнамент',449.99,'pi6.png',1)
-               , (N'Джинсы с подворотами',449.99,'pi7.png',3)
-               , (N'Кюлоты черные',699.99,'pi8.png',4)
-               , (N'Фиолетовые штаны',399.99,'pi4.png',4)
+          values (N'Skirt red',199.99,'pi3.png',4)
+               , (N'Dark jeans',299.99,'pi10.png',3)
+               , (N'Gray pants',349.99,'pi12.png',1)
+               , (N'Jeans black',600,'pi9.png',3)
+               , (N'Pants black',600,'pi11.png',2)
+               , (N'Skirt with polka dots',600,'pi5.png',4)
+               , (N'Pants in ornament',449.99,'pi6.png',1)
+               , (N'Turn-up jeans',449.99,'pi7.png',3)
+               , (N'Black culottes',699.99,'pi8.png',4)
+               , (N'Purple pants',399.99,'pi4.png',4)
        ) as v([Name], Price, [Image], CategoryId)
 ) as trg
   on src.[Name] = trg.[Name]
@@ -51,12 +51,12 @@ using
   select [Name]
        , [Image]
   from (
-          values (N'Брендовое', '6.jpg')
-               , (N'Современное', '12.jpg')
-               , (N'Стильное', '13.jpg')
-               , (N'Модное', '14.jpg')
-               , (N'Новое', '9.jpg')
-               , (N'Яркое', '10.jpg')
+          values (N'Top', '6.jpg')
+               , (N'Modern', '12.jpg')
+               , (N'Stylish', '13.jpg')
+               , (N'Fashionable', '14.jpg')
+               , (N'New', '9.jpg')
+               , (N'Bright', '10.jpg')
        ) as v([Name], [Image])
 ) as trg
   on src.[Name] = trg.[Name]
@@ -73,8 +73,8 @@ using
        , Email
        , [Password]
   from (
-          values (N'Андрей', 'andrew@gmail.com', @hash)
-               , (N'Василиса', 'vasilisa@gmail.com', @hash)
+          values (N'Andrew', 'andrew@gmail.com', @hash)
+               , (N'Kayli', 'kayli@gmail.com', @hash)
        ) as v(FirstName, Email, [Password])
 ) as trg
   on src.Email = trg.Email

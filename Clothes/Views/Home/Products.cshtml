@@ -7,14 +7,14 @@
 <div class="breadcrumbs">
     <div class="container">
         <ol class="breadcrumb breadcrumb1 animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
-            <li><a href="@Url.Action("Index")"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Главная</a></li>
+            <li><a href="@Url.Action("Index")"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Main page</a></li>
             @if (string.IsNullOrWhiteSpace(Model.SearchString))
             {
-                <li class="active">Товары</li>
+                <li class="active">Goods</li>
             }
             else
             {
-                <li><a href="@Url.Action("Products")"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Товары</a></li>
+                <li><a href="@Url.Action("Products")"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Goods</a></li>
                 <li class="active">@Model.SearchString</li>
             }
         </ol>
@@ -23,11 +23,11 @@
 <!--content-->
 <div class="products">
     <div class="container">
-        <h2>Товары</h2>
+        <h2>Goods</h2>
         <div class="col-md-9">
             @if (products.Count == 0)
             {
-                <p class="black-50">В этом разделе пока нет товаров...</p>
+                <p class="black-50">No data yet...</p>
             }
             else
             {
@@ -43,8 +43,8 @@
                                     </a>
                                     <h3><a href="@Url.Action("Single", new { id = product.Id })">@product.Name</a></h3>
                                     <div class="price">
-                                        <h5 class="item_price">₴@product.Price</h5>
-                                        <a href="@Url.Action("AddToCart", new { id = product.Id })" class="item_add">В корзину</a>
+                                        <h5 class="item_price">$@product.Price</h5>
+                                        <a href="@Url.Action("AddToCart", new { id = product.Id })" class="item_add">Add to cart</a>
                                         <div class="clearfix"> </div>
                                     </div>
                                 </div>

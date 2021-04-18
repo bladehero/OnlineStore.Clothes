@@ -6,12 +6,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Топовый шмот</title>
+    <title>Best Clothes</title>
     <link href="~/Content/css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
     <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" media="all" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="Шмот Одежда Топ" />
+    <meta name="keywords" content="Best Clothes" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <link href='//fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
@@ -42,7 +42,7 @@
         <div class="header-top">
             <div class="container">
                 <div class="col-sm-4 logo animated wow fadeInLeft" data-wow-delay=".5s">
-                    <h1><a href="@Url.Action("Index", "Home")">#Топ<span>Шмот</span></a></h1>
+                    <h1><a href="@Url.Action("Index", "Home")">#Best<span>Clothes</span></a></h1>
                 </div>
                 <div class="col-sm-4 world animated wow fadeInRight" data-wow-delay=".5s">
                     @if (user != null)
@@ -58,13 +58,13 @@
                                     <img src="~/Content/images/cart.png" alt="" />
                                 </h3>
                             </a>
-                            <p><a href="javascript:;" class="simpleCart_empty">Корзина</a></p>
+                            <p><a href="javascript:;" class="simpleCart_empty">Shopping cart</a></p>
                         </div>
                     }
                 </div>
                 <div class="col-sm-2 number animated wow fadeInRight" data-wow-delay=".5s">
-                    <span><i class="glyphicon glyphicon-phone"></i>+380998881122</span>
-                    <p>Набрать нас</p>
+                    <span><i class="glyphicon glyphicon-phone"></i>+1234567890</span>
+                    <p>Call us</p>
                 </div>
                 <div class="col-sm-2 search animated wow fadeInRight" data-wow-delay=".5s">
                     <a class="play-icon popup-with-zoom-anim" href="#small-dialog"><i class="glyphicon glyphicon-search"></i></a>
@@ -91,9 +91,9 @@
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                             <ul class="nav navbar-nav nav_1">
-                                <li><a href="@Url.Action("Index", "Home")">Главная</a></li>
+                                <li><a href="@Url.Action("Index", "Home")">Main page</a></li>
                                 <li class="dropdown mega-dropdown active">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Категории<span class="caret"></span></a>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories<span class="caret"></span></a>
                                     <div class="dropdown-menu mega-dropdown-menu">
                                         <div class="container-fluid">
                                             <!-- Tab panes -->
@@ -111,15 +111,15 @@
                                         <!-- Nav tabs -->
                                     </div>
                                 </li>
-                                <li><a href="@Url.Action("Products", "Home", new { id = (int?)null })">Товары</a></li>
-                                <li><a href="@Url.Action("Contact", "Home")">Контакты</a></li>
+                                <li><a href="@Url.Action("Products", "Home", new { id = (int?)null })">Goods</a></li>
+                                <li><a href="@Url.Action("Contact", "Home")">Contacts</a></li>
                                 @if (user == null)
                                 {
-                                    <li class="last"><a href="@Url.Action("Account", "Home")">Войти</a></li>
+                                    <li class="last"><a href="@Url.Action("Account", "Home")">Log in</a></li>
                                 }
                                 else
                                 {
-                                    <li class="last"><a href="@Url.Action("Logout", "Home")">Выйти</a></li>
+                                    <li class="last"><a href="@Url.Action("Logout", "Home")">Log out</a></li>
                                 }
                             </ul>
                         </div><!-- /.navbar-collapse -->
@@ -133,7 +133,7 @@
                         <div class="login">
                             <form action="@Url.Action("Search", "Home")" method="get">
                                 <input type="submit" value="">
-                                <input type="text" name="search" value="Напишите ваш запрос..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
+                                <input type="text" name="search" value="Write your request..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
                             </form>
                         </div>
                     </div>
@@ -168,7 +168,7 @@
         <div class="container">
             <div class="footer-top">
                 <div class="col-md-6 top-footer animated wow fadeInLeft" data-wow-delay=".5s">
-                    <h3>Подписывайся</h3>
+                    <h3>Subscribe to us</h3>
                     <div class="social-icons">
                         <ul class="social">
                             <li><a href="#"><i></i></a> </li>
@@ -180,10 +180,10 @@
                     </div>
                 </div>
                 <div class="col-md-6 top-footer1 animated wow fadeInRight" data-wow-delay=".5s">
-                    <h3>Рассылка</h3>
+                    <h3>Notifications</h3>
                     <form action="@Url.Action("Subscribe", "Home")" method="post">
                         <input type="text" name="email" value="" onfocus="this.value='';" onblur="if (this.value === '') {this.value ='';}">
-                        <input type="submit" value="Подписаться">
+                        <input type="submit" value="Subscribe">
                     </form>
                 </div>
                 <div class="clearfix"> </div>
@@ -192,7 +192,7 @@
         <div class="footer-bottom">
             <div class="container">
                 <div class="col-md-2 footer-bottom-cate animated wow fadeInLeft" data-wow-delay=".5s">
-                    <h6>Категории</h6>
+                    <h6>Categories</h6>
                     <ul>
                         @foreach (Category category in ViewBag.Categories)
                         {
@@ -201,7 +201,7 @@
                     </ul>
                 </div>
                 <div class="col-md-3 footer-bottom-cate animated wow fadeInLeft" data-wow-delay=".5s">
-                    <h6>Бестселлеры</h6>
+                    <h6>Bestsellers</h6>
                     <ul>
                         @foreach (Product product in ViewBag.BestSellers)
                         {
@@ -210,7 +210,7 @@
                     </ul>
                 </div>
                 <div class="col-md-2 footer-bottom-cate animated wow fadeInRight" data-wow-delay=".5s">
-                    <h6>Теги</h6>
+                    <h6>Tags</h6>
                     <ul>
                         @foreach (Tag tag in ViewBag.Tags)
                         {
@@ -219,18 +219,18 @@
                     </ul>
                 </div>
                 <div class="col-md-5 footer-bottom-cate cate-bottom animated wow fadeInRight" data-wow-delay=".5s">
-                    <h6>Контактные данные</h6>
+                    <h6>Contacts</h6>
                     <ul>
-                        <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Адрес: Королева 28а, офис 155, г. Одесса, <span>Украина.</span></li>
-                        <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="mailto:info@topshmot.com">info@topshmot.com</a></li>
-                        <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>Телефон: +38(099)-888-11-22</li>
+                        <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Address: <span>Europe.</span></li>
+                        <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="mailto:info@best_clothes.com">info@best_clothes.com</a></li>
+                        <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>Phone: +1234567890</li>
                     </ul>
                 </div>
                 <div class="clearfix"> </div>
                 <p class="footer-class animated wow fadeInUp animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-                    © @DateTime.Today.Year #TопШмот
+                    © @DateTime.Today.Year #BestClothes
                     <br />
-                    Все права защищены
+                    All rights reserved
                 </p>
             </div>
         </div>

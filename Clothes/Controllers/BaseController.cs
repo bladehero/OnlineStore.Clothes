@@ -36,7 +36,7 @@ namespace Clothes.Controllers
                 var sum = (from product in unitOfWork.Products
                            join id in products on product.Id equals id
                            select product.Price).Sum();
-                ViewBag.CartSubHeader = $"₴{sum} ({products.Count}шт.)";
+                ViewBag.CartSubHeader = $"${sum} ({products.Count}pcs.)";
             }
             base.OnActionExecuting(filterContext);
         }

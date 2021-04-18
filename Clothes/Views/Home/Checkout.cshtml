@@ -9,21 +9,21 @@
 <div class="breadcrumbs">
     <div class="container">
         <ol class="breadcrumb breadcrumb1 animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
-            <li><a href="@Url.Action("Index")"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Главная</a></li>
-            <li class="active">Корзина</li>
+            <li><a href="@Url.Action("Index")"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Main page</a></li>
+            <li class="active">Shopping cart</li>
         </ol>
     </div>
 </div>
 <!---->
 <div class="container">
     <div class="check-out">
-        <h2>Корзина</h2>
+        <h2>Shopping cart</h2>
         <table id="checkout-table">
             <tr>
-                <th>Товар</th>
-                <th>К-во</th>
-                <th>Цена за шт.</th>
-                <th>Сумма</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price for one</th>
+                <th>Sum</th>
                 <th></th>
             </tr>
             @foreach (var product in Model)
@@ -38,8 +38,8 @@
                         <div class="clearfix"> </div>
                     </td>
                     <td class="check"><input type="number" value="@product.Quantity" min="1" max="100"></td>
-                    <td>₴@product.Product.Price</td>
-                    <td class="total-price">₴<span class="total-price-value">@(product.Product.Price * product.Quantity)</span></td>
+                    <td>$@product.Product.Price</td>
+                    <td class="total-price">$<span class="total-price-value">@(product.Product.Price * product.Quantity)</span></td>
                     <td><a href="@Url.Action("RemoveFromCart", new { id = product.Product.Id })"><i class="glyphicon glyphicon-remove"></i></a></td>
                 </tr>
             }
@@ -47,13 +47,13 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>₴<span id="order-total-price">@totalPrice</span></td>
+                <td>$<span id="order-total-price">@totalPrice</span></td>
                 <td></td>
             </tr>
         </table>
         <div class="container">
             <div class="col-md-6">
-                <a href="@Url.Action("Buy")" class=" to-buy">Купить</a>
+                <a href="@Url.Action("Buy")" class=" to-buy">Buy</a>
             </div>
         </div>
         <div class="clearfix"> </div>
